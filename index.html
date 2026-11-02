@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="وبلاگ آموزشی زیست‌شناسی دهم؛ فصل پنجم، تنظیم اسمزی و دفع مواد زائد">
+<title>زیست‌یار | کلیه و تنظیم اسمزی</title>
+<style>
+:root{
+ --navy:#10283f;--blue:#176b87;--teal:#159b83;--mint:#e8f7f2;
+ --ink:#203246;--muted:#68798a;--paper:#f3f7fa;--gold:#f2b84b;
+ --line:#dce7ee;--white:#fff;--rose:#fff0ed;--shadow:0 10px 28px #17344b0b
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:82px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Tahoma,"Segoe UI",sans-serif;line-height:2}
+a{color:var(--blue)}
+.wrap{width:min(1080px,calc(100% - 32px));margin:auto}
+header{color:white;background:linear-gradient(125deg,#10283f,#176b87 65%,#159b83);padding:28px 0 34px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.pill{border:1px solid #ffffff55;background:#ffffff12;border-radius:30px;padding:4px 13px;font-size:13px}
+h1{font-size:clamp(28px,5vw,44px);line-height:1.5;margin:18px 0 8px}
+header p{color:#e0f0f5;max-width:760px;margin:0}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}
+.stat{padding:13px 16px;border:1px solid #ffffff35;border-radius:16px;background:#ffffff12}
+.stat b{display:block;font-size:19px}
+nav{position:sticky;top:0;z-index:10;background:#ffffffed;backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;gap:6px;overflow:auto;padding:9px 0;scrollbar-width:thin}
+.nav a{white-space:nowrap;text-decoration:none;padding:7px 12px;border-radius:10px;font-size:14px}
+.nav a:hover{background:var(--mint)}
+main{padding:26px 0 48px}
+.card{background:white;border:1px solid var(--line);border-radius:20px;padding:22px;margin-bottom:18px;box-shadow:var(--shadow)}
+h2{color:var(--navy);font-size:23px;margin:0 0 13px}
+h3{color:var(--blue);font-size:18px;margin:18px 0 6px}
+p{margin:8px 0}
+.lead{font-size:17px;color:#41576b}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.info{background:#f1f8fb;border:1px solid #dcecf2;border-radius:15px;padding:14px}
+.note,.exam,.warn{padding:13px 15px;border-radius:12px;margin:14px 0}
+.note{background:#fff8e8;border-right:4px solid var(--gold)}
+.exam{background:#effaf6;border-right:4px solid var(--teal)}
+.warn{background:var(--rose);border-right:4px solid #df806d}
+ul{padding-right:22px;margin:7px 0}
+li{margin:5px 0}
+table{width:100%;border-collapse:collapse;margin:12px 0;border-radius:12px;overflow:hidden}
+th,td{padding:10px;border:1px solid var(--line);text-align:right;vertical-align:top}
+th{background:#eaf4f8;color:var(--navy)}
+.diagram{display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap;background:#f4f9fb;border-radius:16px;padding:16px;margin:14px 0}
+.node{background:white;border:1px solid #cfe0e8;border-radius:12px;padding:9px 13px;text-align:center;min-width:112px}
+.arrow{font-size:21px;color:var(--teal)}
+.small{font-size:13px;color:var(--muted)}
+.quiz{border:1px solid var(--line);border-radius:15px;padding:14px;margin:12px 0}
+.quiz p{font-weight:bold;margin:0 0 8px}
+.option{display:block;padding:7px 10px;border-radius:9px;margin:5px 0;background:#f6f9fb;cursor:pointer}
+.option:hover{background:#eaf5f7}
+.option input{margin-left:8px;accent-color:var(--teal)}
+.feedback{font-size:14px;margin-top:7px;font-weight:bold}
+.good{color:#12805e}.bad{color:#b54735}
+button{border:0;border-radius:11px;background:var(--teal);color:white;padding:10px 17px;font:inherit;cursor:pointer;font-weight:bold;margin:4px 3px}
+button:hover{filter:brightness(.95)}
+button.secondary{background:#eaf3f7;color:var(--blue)}
+#result{display:none;background:#effaf6;padding:12px;border-radius:12px;margin-top:12px;font-weight:bold}
+.progress{height:8px;background:#e7eef2;border-radius:20px;overflow:hidden;margin:12px 0}
+.progress span{display:block;height:100%;width:0;background:var(--teal);transition:width .2s}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:22px}
+@media(max-width:700px){.stats,.grid{grid-template-columns:1fr}.card{padding:16px}table{font-size:13px}th,td{padding:7px}.wrap{width:min(100% - 22px,1080px)}}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap">
+  <div class="top"><span class="pill">وبلاگ آموزشی زیست‌شناسی</span><span class="pill">پایه دهم · فصل پنجم</span></div>
+  <h1>کلیه؛ تنظیم اسمزی و دفع مواد زائد</h1>
+  <p>درسنامه‌ای مفهومی درباره هم‌ایستایی، ساختمان کلیه، نفرون و مراحل تشکیل ادرار؛ همراه با جدول، نمودار و آزمون خودسنجی.</p>
+  <div class="stats">
+   <div class="stat"><b>۷ بخش آموزشی</b><span>از هم‌ایستایی تا جمع‌بندی</span></div>
+   <div class="stat"><b>نمودار و جدول</b><span>برای مرور بهتر مفاهیم</span></div>
+   <div class="stat"><b>۱۰ پرسش</b><span>آزمون تعاملی پایان درس</span></div>
+  </div>
+ </div>
+</header>
+<nav><div class="wrap nav">
+ <a href="#start">شروع</a><a href="#homeostasis">هم‌ایستایی</a><a href="#waste">مواد دفعی</a><a href="#kidney">ساختمان کلیه</a><a href="#nephron">نفرون</a><a href="#urine">تشکیل ادرار</a><a href="#review">جمع‌بندی</a><a href="#quiz">آزمون</a>
+</div></nav>
+<main class="wrap">
+<section class="card" id="start">
+ <h2>نقشه راه فصل</h2>
+ <p class="lead">سلول‌های بدن برای انجام فعالیت‌های طبیعی به محیطی نسبتاً پایدار نیاز دارند. بدن با تنظیم مقدار آب، یون‌ها و دفع مواد زائد، شرایط درونی خود را در محدوده مناسب نگه می‌دارد.</p>
+ <div class="diagram">
+  <div class="node"><b>حفظ تعادل درونی</b><br><small>هم‌ایستایی</small></div><span class="arrow">←</span>
+  <div class="node"><b>تنظیم آب و یون‌ها</b><br><small>تنظیم اسمزی</small></div><span class="arrow">+</span>
+  <div class="node"><b>دفع مواد زائد</b><br><small>با نقش کلیه‌ها</small></div>
+ </div>
+ <div class="note"><b>ایده اصلی:</b> کلیه فقط محل تولید ادرار نیست؛ در تنظیم ترکیب و حجم مایعات بدن نیز نقش مهمی دارد.</div>
+</section>
+
+<section class="card" id="homeostasis">
+ <h2>۱. هم‌ایستایی و تنظیم اسمزی</h2>
+ <p>هم‌ایستایی یعنی ثابت نگه داشتن نسبی شرایط درونی بدن، با وجود تغییرات محیط بیرون یا فعالیت‌های بدن. این ثبات مطلق نیست؛ بلکه متغیرهای بدن در محدوده‌ای مناسب تنظیم می‌شوند.</p>
+ <div class="grid">
+  <div class="info"><h3>تنظیم آب</h3><p>بدن باید بین آب دریافتی و آب ازدست‌رفته تعادل برقرار کند. آب از راه نوشیدن و مواد غذایی دریافت و از راه ادرار، عرق، بازدم و مدفوع دفع می‌شود.</p></div>
+  <div class="info"><h3>تنظیم یون‌ها</h3><p>غلظت یون‌هایی مانند سدیم و پتاسیم برای عملکرد طبیعی سلول‌ها اهمیت دارد. کلیه در تنظیم مقدار دفع یا نگهداری آن‌ها نقش دارد.</p></div>
+ </div>
+ <h3>تنظیم اسمزی چیست؟</h3>
+ <p>تنظیم اسمزی به تنظیم مقدار آب و مواد حل‌شده در مایعات بدن گفته می‌شود. تغییر در مقدار آب بدن می‌تواند غلظت مواد حل‌شده را تغییر دهد؛ بنابراین بدن باید این تعادل را کنترل کند.</p>
+ <div class="exam"><b>نکته مفهومی:</b> تنظیم آب و تنظیم یون‌ها به هم وابسته‌اند؛ تغییر در مقدار آب می‌تواند غلظت یون‌ها را نیز تغییر دهد.</div>
+</section>
+
+<section class="card" id="waste">
+ <h2>۲. مواد زائد و راه‌های دفع</h2>
+ <p>فعالیت‌های سوخت‌وسازی سلول‌ها موادی تولید می‌کند که باقی ماندن مقدار زیاد آن‌ها می‌تواند برای بدن زیان‌آور باشد. بدن این مواد را از راه اندام‌های دفعی خارج می‌کند.</p>
+ <table><thead><tr><th>ماده یا گروه مواد</th><th>منشأ یا ویژگی</th><th>راه اصلی دفع</th></tr></thead><tbody>
+  <tr><td>کربن‌دی‌اکسید</td><td>در فرایندهای سوخت‌وسازی سلولی تولید می‌شود.</td><td>شش‌ها و بازدم</td></tr>
+  <tr><td>مواد نیتروژن‌دار</td><td>در نتیجه تجزیه مواد دارای نیتروژن، مانند آمینواسیدها، پدید می‌آیند.</td><td>بیشتر از راه کلیه‌ها و ادرار</td></tr>
+  <tr><td>آب و یون‌های اضافی</td><td>مقدار آن‌ها باید متناسب با نیاز بدن تنظیم شود.</td><td>کلیه‌ها و نیز پوست</td></tr>
+ </tbody></table>
+ <h3>مواد دفعی نیتروژن‌دار</h3>
+ <p>جانوران مختلف مواد نیتروژن‌دار را به شکل‌های متفاوتی دفع می‌کنند. آمونیاک سمی است و دفع آن به آب زیادی نیاز دارد؛ اوره سمیت کمتری دارد و در پستانداران ماده دفعی نیتروژن‌دار مهمی به شمار می‌رود؛ اسیداوریک نیز در برخی جانوران دفع می‌شود و به آب کمتری نیاز دارد.</p>
+ <div class="note"><b>مقایسه مهم:</b> آمونیاک سمیت بیشتری دارد و دفع آن به آب فراوان نیازمند است؛ اسیداوریک کم‌محلول‌تر است و با آب کمتری دفع می‌شود.</div>
+</section>
+
+<section class="card" id="kidney">
+ <h2>۳. ساختمان کلیه انسان</h2>
+ <p>کلیه‌ها دو اندام لوبیایی‌شکل در دو سوی ستون مهره‌ها هستند. خون از راه سرخرگ کلیوی وارد کلیه می‌شود و پس از عبور از شبکه مویرگی آن، از راه سیاهرگ کلیوی خارج می‌شود. ادرار ساخته‌شده از طریق میزنای به مثانه می‌رود.</p>
+ <div class="diagram"><div class="node"><b>سرخرگ کلیوی</b><br><small>ورود خون</small></div><span class="arrow">←</span><div class="node"><b>کلیه</b><br><small>تصفیه و تنظیم</small></div><span class="arrow">→</span><div class="node"><b>سیاهرگ کلیوی</b><br><small>خروج خون</small></div></div>
+ <h3>مسیر حرکت ادرار</h3>
+ <div class="diagram"><div class="node">کلیه</div><span class="arrow">→</span><div class="node">میزنای</div><span class="arrow">→</span><div class="node">مثانه</div><span class="arrow">→</span><div class="node">میزراه</div></div>
+ <p>ادرار در کلیه ساخته می‌شود، از طریق میزنای به مثانه منتقل و در مثانه ذخیره می‌شود؛ سپس از راه میزراه از بدن خارج می‌گردد.</p>
+ <div class="grid">
+  <div class="info"><h3>قشر کلیه</h3><p>بخش بیرونی کلیه است. بخش‌هایی از نفرون، از جمله کلافک و کپسول بومن، در این ناحیه قرار دارند.</p></div>
+  <div class="info"><h3>مغز کلیه</h3><p>بخش درونی کلیه است و هرم‌های کلیوی را در بر می‌گیرد. بخش‌هایی از لوله‌های نفرون و مجاری جمع‌کننده در آن دیده می‌شوند.</p></div>
+ </div>
+ <div class="info" style="margin-top:12px"><h3>لگنچه کلیه</h3><p>ناحیه قیفی‌شکل جمع‌آوری ادرار است که ادرار را به میزنای هدایت می‌کند.</p></div>
+ <div class="warn"><b>دقت در اصطلاحات:</b> میزنای ادرار را از کلیه به مثانه می‌برد؛ میزراه ادرار را از مثانه به بیرون بدن هدایت می‌کند.</div>
+</section>
+
+<section class="card" id="nephron">
+ <h2>۴. نفرون؛ واحد ساختاری و عملکردی کلیه</h2>
+ <p>هر کلیه از تعداد زیادی نفرون تشکیل شده است. نفرون واحدی است که در آن فرایندهای مربوط به تشکیل ادرار انجام می‌شود. هر نفرون از یک بخش لوله‌ای و یک بخش مویرگی مرتبط با آن تشکیل شده است.</p>
+ <h3>اجزای مهم نفرون</h3>
+ <ul>
+  <li><b>کپسول بومن:</b> کلافک مویرگی درون آن قرار دارد و مایع تراوش‌شده از خون در آن جمع می‌شود.</li>
+  <li><b>کلافک:</b> شبکه‌ای از مویرگ‌هاست که در آن تراوش مواد از خون صورت می‌گیرد.</li>
+  <li><b>لوله پیچ‌خورده نزدیک:</b> بازجذب مقدار زیادی از مواد مفید و آب در این بخش انجام می‌شود.</li>
+  <li><b>قوس هنله:</b> در ایجاد شیب غلظت در بخش مرکزی کلیه نقش دارد و در بازجذب آب و نمک مؤثر است.</li>
+  <li><b>لوله پیچ‌خورده دور:</b> در تنظیم دقیق‌تر ترکیب مایع لوله‌ای نقش دارد.</li>
+  <li><b>لوله جمع‌کننده:</b> مایع را از چند نفرون دریافت می‌کند و در تنظیم نهایی آب نقش دارد.</li>
+ </ul>
+ <div class="diagram"><div class="node"><b>کلافک</b></div><span class="arrow">→</span><div class="node"><b>کپسول بومن</b></div><span class="arrow">→</span><div class="node"><b>لوله نزدیک</b></div><span class="arrow">→</span><div class="node"><b>قوس هنله</b></div><span class="arrow">→</span><div class="node"><b>لوله دور</b></div><span class="arrow">→</span><div class="node"><b>لوله جمع‌کننده</b></div></div>
+ <p class="small">نمودار بالا مسیر ساده‌شده عبور مایع در نفرون را نشان می‌دهد؛ شکل دقیق و ارتباط رگ‌ها را در تصویر کتاب درسی نیز بررسی کنید.</p>
+ <h3>رگ‌های مرتبط با نفرون</h3>
+ <p>خون از راه سرخرگچه آوران به کلافک وارد و از راه سرخرگچه وابران خارج می‌شود. مویرگ‌های اطراف لوله‌های نفرون در تبادل مواد و بازجذب نقش دارند.</p>
+ <div class="exam"><b>نکته آزمونی:</b> کلافک محل تراوش از خون است؛ بازجذب مواد مورد نیاز از مایع لوله‌ای به خون در بخش‌های مختلف لوله نفرون انجام می‌شود.</div>
+</section>
+
+<section class="card" id="urine">
+ <h2>۵. مراحل تشکیل ادرار</h2>
+ <p>تشکیل ادرار حاصل سه فرایند اصلی است: تراوش، بازجذب و ترشح. این فرایندها باعث می‌شوند مواد زائد دفع و بسیاری از مواد مورد نیاز بدن حفظ شوند.</p>
+ <div class="grid">
+  <div class="info"><h3>۱) تراوش</h3><p>به علت فشار خون در کلافک، بخشی از آب و مواد کوچک محلول از مویرگ‌ها به درون کپسول بومن وارد می‌شوند. سلول‌های خونی و بیشتر پروتئین‌های بزرگ در خون باقی می‌مانند.</p></div>
+  <div class="info"><h3>۲) بازجذب</h3><p>مواد مفید مانند گلوکز، آمینواسیدها، بخشی از یون‌ها و مقدار زیادی آب از مایع لوله‌ای به مویرگ‌های اطراف بازمی‌گردند.</p></div>
+  <div class="info"><h3>۳) ترشح</h3><p>برخی مواد از خون مویرگ‌های اطراف به درون لوله نفرون منتقل می‌شوند تا دفع آن‌ها از بدن آسان‌تر شود و ترکیب مایع تنظیم گردد.</p></div>
+  <div class="info"><h3>۴) دفع</h3><p>مایع باقی‌مانده پس از تغییرات مسیر نفرون، ادرار نهایی است و از راه مجاری جمع‌کننده و مسیرهای ادراری خارج می‌شود.</p></div>
+ </div>
+ <div class="note"><b>راه یادآوری:</b> تراوش: خون به کپسول؛ بازجذب: لوله به خون؛ ترشح: خون به لوله؛ دفع: خروج ادرار از بدن.</div>
+ <h3>چه موادی در ادرار طبیعی دیده می‌شوند؟</h3>
+ <p>ادرار معمولاً شامل آب، مواد دفعی نیتروژن‌دار مانند اوره و مقدارهایی از یون‌هاست. در حالت طبیعی، بیشتر گلوکز و آمینواسیدهای تراوش‌شده بازجذب می‌شوند.</p>
+ <div class="warn"><b>نکته:</b> وجود غیرطبیعی موادی مانند مقدار قابل توجه گلوکز یا پروتئین در ادرار می‌تواند نشانه اختلالی باشد و تفسیر آن به بررسی پزشکی نیاز دارد.</div>
+ <h3>تنظیم آب و نقش هورمون‌ها</h3>
+ <p>بدن با تغییر میزان بازجذب آب در نفرون می‌تواند غلظت و حجم ادرار را تنظیم کند. هورمون ضدادراری (ADH) با افزایش نفوذپذیری بخش‌هایی از لوله جمع‌کننده به آب، بازجذب آب را بیشتر می‌کند؛ در نتیجه معمولاً حجم ادرار کاهش و غلظت آن افزایش می‌یابد.</p>
+ <div class="exam"><b>رابطه علت و معلولی:</b> افزایش اثر ADH ← بازجذب بیشتر آب ← ادرار کم‌حجم‌تر و غلیظ‌تر.</div>
+</section>
+
+<section class="card" id="review">
+ <h2>۶. جدول جمع‌بندی و مقایسه‌های مهم</h2>
+ <table><thead><tr><th>موضوع</th><th>مورد اول</th><th>مورد دوم</th><th>نکته کلیدی</th></tr></thead><tbody>
+  <tr><td>مسیر ادرار</td><td>میزنای: کلیه به مثانه</td><td>میزراه: مثانه به بیرون</td><td>این دو را با هم اشتباه نکن.</td></tr>
+  <tr><td>فرایند کلیوی</td><td>تراوش: خون به کپسول</td><td>بازجذب: لوله به خون</td><td>جهت جابه‌جایی مواد مهم است.</td></tr>
+  <tr><td>فرایند کلیوی</td><td>ترشح: خون به لوله</td><td>دفع: خروج ادرار</td><td>ترشح با دفع نهایی یکسان نیست.</td></tr>
+  <tr><td>بخش کلیه</td><td>قشر: بخش بیرونی</td><td>مغز: بخش درونی</td><td>بخش‌هایی از نفرون در هر دو ناحیه‌اند.</td></tr>
+  <tr><td>اثر ADH</td><td>بازجذب آب بیشتر</td><td>حجم ادرار کمتر</td><td>ادرار غلیظ‌تر می‌شود.</td></tr>
+ </tbody></table>
+ <h3>مرور سریع پیش از آزمون</h3>
+ <ul>
+  <li>کلیه‌ها در دفع مواد زائد و تنظیم آب و یون‌های بدن نقش دارند.</li>
+  <li>نفرون واحد ساختاری و عملکردی کلیه است.</li>
+  <li>تراوش در کلافک و کپسول بومن آغاز می‌شود.</li>
+  <li>بازجذب و ترشح در بخش‌های لوله‌ای نفرون انجام می‌شوند.</li>
+  <li>میزنای، مثانه و میزراه به ترتیب در انتقال، ذخیره و خروج ادرار نقش دارند.</li>
+ </ul>
+</section>
+
+<section class="card" id="quiz">
+ <h2>۷. آزمون چهارگزینه‌ای</h2>
+ <p>گزینه درست را انتخاب کن؛ پس از هر پاسخ، بازخورد همان پرسش نمایش داده می‌شود.</p>
+ <div class="progress"><span id="bar"></span></div>
+ <p class="small" id="counter">۰ از ۱۰ سؤال پاسخ داده شده</p>
+ <div id="questions"></div>
+ <button onclick="gradeQuiz()">محاسبه نتیجه آزمون</button>
+ <button class="secondary" onclick="resetQuiz()">شروع دوباره</button>
+ <div id="result"></div>
+</section>
+
+<section class="card">
+ <h2>منبع و شیوه استفاده</h2>
+ <p>این وب‌سایت یک درسنامه آموزشی و خلاصه‌شده درباره مباحث کلیه در فصل پنجم کتاب «زیست‌شناسی (۱) پایه دهم» است. برای بررسی دقیق عبارت‌ها، فعالیت‌ها و شکل‌ها، کتاب درسی را نیز مطالعه کنید.</p>
+ <p><a href="https://www.roshd.ir/110216-5" target="_blank" rel="noopener">صفحه فصل پنجم در پایگاه رشد</a> · <a href="https://www.roshd.ir/olum/Content/کتاب-زیست-شناسی-1-پایه-دهم" target="_blank" rel="noopener">معرفی کتاب زیست‌شناسی دهم</a></p>
+ <p class="small">برای تطبیق کامل با چاپ کتاب مورد استفاده در کلاس، متن و شکل‌های همان چاپ را ملاک قرار دهید.</p>
+</section>
+</main>
+<footer>زیست‌یار · وبلاگ آموزشی زیست‌شناسی · فصل پنجم: تنظیم اسمزی و دفع مواد زائد</footer>
+<script>
+const qs=[
+ {q:"واحد ساختاری و عملکردی کلیه کدام است؟",o:["مثانه","نفرون","میزراه","لگنچه"],a:1,e:"نفرون واحد ساختاری و عملکردی کلیه است."},
+ {q:"کدام رگ خون را به کلافک وارد می‌کند؟",o:["سرخرگچه آوران","سرخرگچه وابران","سیاهرگ کلیوی","میزنای"],a:0,e:"خون از راه سرخرگچه آوران وارد کلافک می‌شود."},
+ {q:"تراوش در کدام بخش آغاز می‌شود؟",o:["لوله جمع‌کننده","مثانه","کلافک و کپسول بومن","میزراه"],a:2,e:"تراوش از مویرگ‌های کلافک به فضای کپسول بومن صورت می‌گیرد."},
+ {q:"در بازجذب، مواد از کجا به کجا منتقل می‌شوند؟",o:["خون به لوله نفرون","لوله نفرون به خون","مثانه به میزنای","میزراه به مثانه"],a:1,e:"در بازجذب، مواد از مایع لوله‌ای به خون بازمی‌گردند."},
+ {q:"کدام گزینه مسیر درست خروج ادرار از کلیه تا بیرون بدن است؟",o:["میزراه، مثانه، میزنای","مثانه، میزنای، میزراه","میزنای، مثانه، میزراه","کلیه، میزراه، مثانه"],a:2,e:"ادرار از کلیه وارد میزنای، سپس مثانه و در پایان میزراه می‌شود."},
+ {q:"کدام ماده دفعی نیتروژن‌دار در پستانداران اهمیت دارد؟",o:["اکسیژن","اوره","نشاسته","هموگلوبین"],a:1,e:"اوره یکی از مواد دفعی نیتروژن‌دار مهم در پستانداران است."},
+ {q:"کدام فرایند انتقال ماده از خون به درون لوله نفرون است؟",o:["بازجذب","ترشح","تراوش در کپسول","ذخیره"],a:1,e:"در ترشح، برخی مواد از خون مویرگ‌های اطراف به درون لوله نفرون منتقل می‌شوند."},
+ {q:"اثر معمول افزایش ADH چیست؟",o:["کاهش بازجذب آب","افزایش حجم ادرار","افزایش بازجذب آب","توقف کامل تراوش"],a:2,e:"ADH بازجذب آب را افزایش می‌دهد و معمولاً ادرار کم‌حجم‌تر و غلیظ‌تر می‌شود."},
+ {q:"کدام بخش کلیه در بیرون قرار دارد؟",o:["مغز کلیه","قشر کلیه","لگنچه","میزنای"],a:1,e:"قشر کلیه بخش بیرونی کلیه است."},
+ {q:"کدام عبارت درباره میزنای درست است؟",o:["ادرار را از مثانه خارج می‌کند","خون را وارد کلیه می‌کند","ادرار را از کلیه به مثانه می‌برد","محل اصلی تشکیل ادرار است"],a:2,e:"میزنای ادرار را از کلیه به مثانه منتقل می‌کند."}
+];
+const host=document.getElementById("questions");
+function render(){
+ host.innerHTML=qs.map((q,i)=>`<div class="quiz"><p>${i+1}. ${q.q}</p>${q.o.map((v,j)=>`<label class="option"><input type="radio" name="q${i}" value="${j}" onchange="feedback(${i},${j})">${v}</label>`).join("")}<div class="feedback" id="f${i}"></div></div>`).join("");
+ updateProgress();
+}
+function feedback(i,j){
+ const f=document.getElementById("f"+i);
+ if(j===qs[i].a){f.className="feedback good";f.textContent="درست است. "+qs[i].e;}
+ else{f.className="feedback bad";f.textContent="این گزینه درست نیست؛ دوباره به مفهوم سؤال فکر کن.";}
+ updateProgress();
+}
+function updateProgress(){
+ let n=0;qs.forEach((q,i)=>{if(document.querySelector(`input[name="q${i}"]:checked`))n++;});
+ document.getElementById("counter").textContent=`${n} از ${qs.length} سؤال پاسخ داده شده`;
+ document.getElementById("bar").style.width=(n/qs.length*100)+"%";
+}
+function gradeQuiz(){
+ let score=0,answered=0;
+ qs.forEach((q,i)=>{const v=document.querySelector(`input[name="q${i}"]:checked`);if(v){answered++;if(+v.value===q.a)score++;}});
+ const r=document.getElementById("result");r.style.display="block";
+ r.textContent=`نتیجه: ${score} پاسخ درست از ${qs.length} پرسش | پاسخ داده‌شده: ${answered} از ${qs.length}`;
+}
+function resetQuiz(){render();const r=document.getElementById("result");r.style.display="none";r.textContent="";}
+render();
+</script>
+</body>
+</html>
